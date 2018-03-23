@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="#62def8">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please rate this area on scale of 5."
+        android:padding="10dp"
+        android:id="@+id/label"
+        android:layout_centerHorizontal="true"/>
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/label"
+        android:id="@+id/rate_area_bar"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_below="@id/rate_area_bar"
+        android:layout_marginTop="20dp"
+        android:id="@+id/review_area_text"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submit_rating"
+        android:text="SUBMIT"
+        android:layout_below="@+id/review_area_text"
+        android:layout_marginLeft="70dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancel_rating"
+        android:text="CANCEL"
+        android:layout_toEndOf="@+id/submit_rating"
+        android:layout_toRightOf="@+id/submit_rating"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/review_area_text"/>
+</RelativeLayout>

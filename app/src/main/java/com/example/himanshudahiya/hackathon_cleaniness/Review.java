@@ -5,6 +5,9 @@ package com.example.himanshudahiya.hackathon_cleaniness;
  */
 
 public class Review {
+    String areaPk ;
+    String userPk ;
+    String reviewPK ;
     String Review;
     boolean liked;
     int no_of_likes;

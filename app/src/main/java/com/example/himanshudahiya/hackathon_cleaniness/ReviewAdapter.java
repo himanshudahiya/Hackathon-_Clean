@@ -11,6 +11,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +29,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
     private List<Review> mReview;
     private Context mContext;
     private OnItemClickListener listener;
+    private ArrayList<LikedByTable> likeTable ;
 
     // Define the listener interface
     public interface OnItemClickListener {
@@ -53,16 +60,16 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ReviewAdapter.ViewHolder viewHolder, int position) {
 
-        TextView mreview,numberoflikes;
+        TextView mreview, numberoflikes;
         ImageButton img;
-        mreview=viewHolder.mreview;
-        numberoflikes=viewHolder.numberoflikes;
-        img=viewHolder.img;
+        mreview = viewHolder.mreview;
+        numberoflikes = viewHolder.numberoflikes;
+        img = viewHolder.img;
         mreview.setText(mReview.get(position).Review);
-        numberoflikes.setText(" "+mReview.get(position).get_no_of_likes());
-        // Set item views based on your views and data model
+        likeTable = new ArrayList<>();
+        numberoflikes.setText(" "+mReview.get(position). get_no_of_likes());
 
-         }
+    }
 
     @Override
     public int getItemCount() {

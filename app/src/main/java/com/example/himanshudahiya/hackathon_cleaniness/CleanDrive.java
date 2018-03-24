@@ -11,8 +11,8 @@ public class CleanDrive {
     String PERKS;
     String time;
     String date;
-    CleanDrive(String area){
-        Area=area;
+    CleanDrive(){
+
         NGO="";
         NO_OF_VOLUNTEERS=0;
         PERKS="";

@@ -15,9 +15,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+
 import android.view.Menu;
 import android.view.MenuItem;
+
+import android.widget.Toast;
+
 import android.view.View;
+
 
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
@@ -31,12 +36,20 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends FragmentActivity implements OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener {
     private GoogleMap mMap;
     double Lattitude = 12, Longitude = 12;
     PlaceAutocompleteFragment placeAutoComplete;
     Marker myMarker;
+
+    private DatabaseReference areadata ;
+    private DatabaseReference databaseLook ;
+    private DatabaseReference databaseLike ;
+    private DatabaseReference databaseNgo ;
+    private DatabaseReference databaseEvent ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +59,18 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
 
         placeAutoComplete = (PlaceAutocompleteFragment) getFragmentManager().findFragmentById(R.id.place_autocomplete);
+
+        
+
+        databaseLook = FirebaseDatabase.getInstance().getReference("lookup");
+        databaseLike = FirebaseDatabase.getInstance().getReference("like");
+        databaseNgo = FirebaseDatabase.getInstance().getReference("ngo");
+        databaseEvent = FirebaseDatabase.getInstance().getReference("event");
+
+
+
+        addData();
+
         placeAutoComplete.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
@@ -82,7 +107,10 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-
+        areadata = FirebaseDatabase.getInstance().getReference("areas");
+        String id = areadata.push().getKey();
+        AreaModel area = new AreaModel(id,"76.53","30.97") ;
+        areadata.child(id).setValue(area);
         mapFragment.getMapAsync(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
        // setSupportActionBar(toolbar);
@@ -175,4 +203,20 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
+    private void addData() {
+
+
+//        String id2 = databaseArea.push().getKey();
+//        AreaModel user2 = new AreaModel(id2,"76.53","34.97") ;
+//        databaseArea.child(id2).setValue(user2);
+//
+//        String id3 = databaseArea.push().getKey();
+//        AreaModel user3 = new AreaModel(id3,"85.53","30.97") ;
+//        databaseArea.child(id3).setValue(user3);
+//        Toast.makeText(this , "Bedsore added" , Toast.LENGTH_LONG).show();
+
+
+
+    }
 }
+

@@ -199,6 +199,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         auth.addAuthStateListener(mAuthListener);
+
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

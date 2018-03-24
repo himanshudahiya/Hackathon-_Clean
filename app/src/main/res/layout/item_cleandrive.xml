@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="240dp"
+    android:weightSum="5"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    android:layout_gravity="center"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    >
+
+<LinearLayout
+    android:layout_weight="1"
+    android:layout_height="0dp"
+    android:layout_width="match_parent"
+    android:weightSum="2"
+    android:orientation="horizontal">
+    <TextView
+        style="@style/Text_View"
+        android:id="@+id/Area"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="Area"
+        android:background="@drawable/textview"/>
+
+    <Button
+        style="@style/Butt_ons"
+        android:id="@+id/findarea"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="Find Area on maps"
+        android:background="@drawable/roundbutton"/>
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="2"
+        android:orientation="horizontal">
+        <TextView
+            style="@style/Text_View"
+            android:id="@+id/ngoname"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="NGOX"
+            android:background="@drawable/textview"
+            />
+        <Button
+            style="@style/Butt_ons"
+            android:id="@+id/gotongo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Go to ngo page"
+            android:background="@drawable/roundbutton"/>
+
+
+    </LinearLayout>
+    <TextView
+        style="@style/Text_View"
+        android:background="@drawable/textview"
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="5dp"
+        android:text="Date : 16/4/2018 | Time : 20:00"
+        />
+    <TextView
+        android:id="@+id/no_volunteers"
+        style="@style/Text_View"
+        android:background="@drawable/textview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="No of Volunteers Registered:"
+
+        />
+    <TextView
+        style="@style/Text_View"
+        android:background="@drawable/textview"
+        android:id="@+id/perks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Perks"
+        />
+
+</LinearLayout>

@@ -3,13 +3,18 @@ package com.example.himanshudahiya.hackathon_cleaniness;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.media.Image;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RatingBar;
@@ -31,14 +36,17 @@ import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 public class BottomSheetFragment extends BottomSheetDialogFragment {
     private RatingBar mRatingBarValue;
+    private RecyclerView mRecyclerView;
     private HorizontalBarChart barChart;
     private Button ratingButton;
+    private ArrayList<Review> arr;
     private double toSubmitRating = 0;
 
     @Override
     public void setupDialog(final Dialog dialog, int style) {
         super.setupDialog(dialog, style);
         View contentView = View.inflate(getContext(), R.layout.bottom_sheet_fragment, null);
+
         mRatingBarValue = (RatingBar) contentView.findViewById(R.id.area_rating);
         final double rating = 2.5;
         mRatingBarValue.setRating(Float.parseFloat(rating + ""));
@@ -66,7 +74,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         ratingButton = contentView.findViewById(R.id.rate_button);
         ratingButton.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ClickableViewAccessibility")
-            public void onClick(View view){
+            public void onClick(View view) {
                 LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View popupView = inflater.inflate(R.layout.rating_popup, null);
 
@@ -90,13 +98,14 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                 final RatingBar areaRatingBar = popupView.findViewById(R.id.rate_area_bar);
                 areaRatingBar.setOnTouchListener(new View.OnTouchListener() {
                     double rating1 = 0;
+
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
                         if (event.getAction() == MotionEvent.ACTION_UP) {
                             float touchPositionX = event.getX();
                             float width = areaRatingBar.getWidth();
                             float starsf = (touchPositionX / width) * 5.0f;
-                            int stars = (int)starsf + 1;
+                            int stars = (int) starsf + 1;
                             areaRatingBar.setRating(stars);
                             rating1 = stars;
                             toSubmitRating = rating1;
@@ -116,22 +125,21 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                 // to get text written in review
                 EditText areaReviewText = popupView.findViewById(R.id.review_area_text);
                 Button submitButton = popupView.findViewById(R.id.submit_rating);
-                submitButton.setOnClickListener(new View.OnClickListener(){
-                    public void onClick(View view1){
+                submitButton.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View view1) {
                         // submit rating to server
                         System.out.println("rating = " + toSubmitRating);
                         popupWindow.dismiss();
                     }
                 });
                 Button cancelButton = popupView.findViewById(R.id.cancel_rating);
-                cancelButton.setOnClickListener(new View.OnClickListener(){
-                    public void onClick(View view1){
+                cancelButton.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View view1) {
                         popupWindow.dismiss();
                     }
                 });
             }
         });
-
-
     }
+
 }

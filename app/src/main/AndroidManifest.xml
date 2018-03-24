@@ -16,33 +16,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key"></meta-data>
+
         <activity android:name=".MainActivity">
-
-        </activity>
-
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Cleaner"></activity>
-
-
-        <activity android:name=".BottomSheet">
-
-
-        </activity>
-
-        <activity
-            android:name=".RegisterActivity"
-            android:label="@string/title_activity_register"
-            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
+        </activity>
+        <activity android:name=".Cleaner"></activity>
+        <activity android:name=".BottomSheet">
+
+        </activity>
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:theme="@style/AppTheme.NoActionBar" >
+
         </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -58,7 +60,8 @@
 
         <activity
             android:name=".LocationActivity"
-            android:label="@string/title_activity_location">
+            android:label="@string/title_activity_location"></activity>
+        <activity android:name=".ReviewsActivity">
 
         </activity>
     </application>

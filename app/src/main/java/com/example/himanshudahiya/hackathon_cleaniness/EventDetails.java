@@ -2,13 +2,23 @@ package com.example.himanshudahiya.hackathon_cleaniness;
 
 
 
-public class EventPk {
+public class EventDetails {
     private String pk ;
     private String eventName ;
     private String timestamp ;
     private String ngo_pk ;
     private String perks ;
     private String place ;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    private String date ;
 
     public String getPk() {
         return pk;
@@ -58,12 +68,13 @@ public class EventPk {
         this.place = place;
     }
 
-    public EventPk(String pk, String eventName, String timestamp, String ngo_pk, String perks, String place) {
+    public EventDetails(String pk, String eventName, String timestamp, String ngo_pk, String perks, String place , String date) {
         this.pk = pk;
         this.eventName = eventName;
         this.timestamp = timestamp;
         this.ngo_pk = ngo_pk;
         this.perks = perks;
         this.place = place;
+        this.date = date ;
     }
 }

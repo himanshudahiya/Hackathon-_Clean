@@ -13,7 +13,7 @@ public class BottomSheet extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_sheet);
-        bottomSheetButton = (Button) findViewById(R.id.bottom_sheet_button);
+        bottomSheetButton =  findViewById(R.id.bottom_sheet_button);
         bottomSheetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

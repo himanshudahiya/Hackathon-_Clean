@@ -110,9 +110,11 @@ public class LoginActivity extends AppCompatActivity {
 
         if (user.isEmailVerified()) {
             // user is verified, so you can finish this activity or send user to activity which you want.
+
             Toast.makeText(LoginActivity.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
+            this.finish();
         } else {
             // email is not verified, so just prompt the message to the user and restart this activity.
             // NOTE: don't forget to log out the user.

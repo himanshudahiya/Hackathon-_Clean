@@ -16,26 +16,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".Cleaner"></activity>
+        <activity android:name=".Cleaner" />
         <activity android:name=".BottomSheet">
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
-
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
             android:label="@string/title_activity_register"
@@ -53,13 +50,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_places_key" />
 
-
         <activity
             android:name=".LocationActivity"
-            android:label="@string/title_activity_location"></activity>
-        <activity android:name=".ReviewsActivity">
-
-        </activity>
+            android:label="@string/title_activity_location" />
+        <activity android:name=".ReviewsActivity"></activity>
     </application>
 
 </manifest>

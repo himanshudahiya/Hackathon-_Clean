@@ -1,4 +1,7 @@
+
 package com.example.himanshudahiya.hackathon_cleaniness;
+
+
 
 /**
  * Created by frien_000 on 3/24/2018.
@@ -39,3 +42,4 @@ public class AreaModel {
         this.latitude = latitude;
     }
 }
+

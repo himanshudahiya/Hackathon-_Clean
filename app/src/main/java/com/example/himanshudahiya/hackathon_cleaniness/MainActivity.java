@@ -37,13 +37,11 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     PlaceAutocompleteFragment placeAutoComplete;
     Marker myMarker;
 
-
     private DatabaseReference areadata ;
     private DatabaseReference databaseLook ;
     private DatabaseReference databaseLike ;
     private DatabaseReference databaseNgo ;
     private DatabaseReference databaseEvent ;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +52,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
         placeAutoComplete = (PlaceAutocompleteFragment) getFragmentManager().findFragmentById(R.id.place_autocomplete);
 
-        areadata = FirebaseDatabase.getInstance().getReference("areas");
-        String id = areadata.push().getKey();
-        AreaModel area = new AreaModel(id,"76.53","30.97") ;
-        areadata.child(id).setValue(area);
-
+        
 
         databaseLook = FirebaseDatabase.getInstance().getReference("lookup");
         databaseLike = FirebaseDatabase.getInstance().getReference("like");
@@ -105,7 +99,10 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-
+        areadata = FirebaseDatabase.getInstance().getReference("areas");
+        String id = areadata.push().getKey();
+        AreaModel area = new AreaModel(id,"76.53","30.97") ;
+        areadata.child(id).setValue(area);
         mapFragment.getMapAsync(this);
 
     }

@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 import android.content.Intent;
@@ -92,7 +93,8 @@ public class RegisterActivity extends AppCompatActivity {
                 String password = inputPassword.getText().toString().trim();
                 final String mobileNumber = mobile.getText().toString().trim();
                 final String name_user = name.getText().toString().trim() ;
-                final int number = Integer.parseInt(mobileNumber);
+                Log.d("size",mobileNumber);
+                final Long number =Long.parseLong(mobileNumber);
                 final  String location = "" ;
                  if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
@@ -139,7 +141,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     // store details
                                     String id = databaseLogin.push().getKey();
                                     boolean isCleaner = false ;
-                                    DetailsUser user = new DetailsUser(id,name_user,number,email,location,isCleaner) ;
+                                    DetailsUser user = new DetailsUser(id,name_user,number,email,location_coordinates,isCleaner) ;
                                     databaseLogin.child(id).setValue(user);
                                     // after email is sent just logout the user and finish this activity
                                     FirebaseAuth.getInstance().signOut();
@@ -205,7 +207,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Place place = PlacePicker.getPlace(data, this);
                 Double latitude = place.getLatLng().latitude ;
                 Double longitude = place.getLatLng().longitude ;
-                location_coordinates = Double.toString(latitude) + Double.toString(longitude);
+                location_coordinates = Double.toString(latitude) +  "" + Double.toString(longitude);
                 String toastMsg = String.format("Place: %s", place.getName());
                 Toast.makeText(this, toastMsg, Toast.LENGTH_LONG).show();
             }

@@ -4,12 +4,12 @@ package com.example.himanshudahiya.hackathon_cleaniness;
 public class DetailsUser {
     private String id ;
     private String name ;
-    private int mobile ;
+    private long mobile ;
     private String email ;
     private String location ;
     private boolean isCleaner ;
 
-    public DetailsUser(String id,String name, int mobile, String email, String location, boolean Cleaner) {
+    public DetailsUser(String id,String name, long mobile, String email, String location, boolean Cleaner) {
         this.id = id ;
         this.name = name;
         this.mobile = mobile;
@@ -26,11 +26,11 @@ public class DetailsUser {
         this.name = name;
     }
 
-    public int getMobile() {
+    public long getMobile() {
         return mobile;
     }
 
-    public void setMobile(int mobile) {
+    public void setMobile(long mobile) {
         this.mobile = mobile;
     }
 

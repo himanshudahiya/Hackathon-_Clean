@@ -55,6 +55,15 @@
         android:text="This is a test string for the sample"
         android:textSize="20sp"
         />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler"
+            android:layout_below="@+id/textView"
+            ></android.support.v7.widget.RecyclerView>
+
     </RelativeLayout>
+
 </ScrollView>
 </RelativeLayout>

@@ -3,13 +3,18 @@ package com.example.himanshudahiya.hackathon_cleaniness;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.media.Image;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RatingBar;
@@ -31,14 +36,30 @@ import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 public class BottomSheetFragment extends BottomSheetDialogFragment {
     private RatingBar mRatingBarValue;
+    private RecyclerView mRecyclerView;
     private HorizontalBarChart barChart;
     private Button ratingButton;
+    private ArrayList<String> arr;
     private double toSubmitRating = 0;
 
     @Override
     public void setupDialog(final Dialog dialog, int style) {
         super.setupDialog(dialog, style);
         View contentView = View.inflate(getContext(), R.layout.bottom_sheet_fragment, null);
+        mRecyclerView=contentView.findViewById(R.id.recycler);
+        arr=new ArrayList<String>();
+        for(int i=0;i<20;i++)
+            arr.add("hello world fsdkdksj d "+i);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        ReviewAdapter adapter=new ReviewAdapter(getContext(),arr);
+        adapter.setOnItemClickListener(new ReviewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view) {
+                ImageButton img=(ImageButton) view;
+                img.setImageResource(R.drawable.ic_action_name);
+        }});
+        mRecyclerView.setAdapter(adapter);
+
         mRatingBarValue = (RatingBar) contentView.findViewById(R.id.area_rating);
         final double rating = 2.5;
         mRatingBarValue.setRating(Float.parseFloat(rating + ""));

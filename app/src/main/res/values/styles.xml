@@ -7,5 +7,17 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="Butt_ons">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/violetlight</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    <style name="Text_View">
+        <item name="android:background">@color/violetlight</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/yellow</item>
+    </style>
 
 </resources>

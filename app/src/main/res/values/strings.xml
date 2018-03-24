@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Hackathon_Cleaniness</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_reset_password">ResetPasswordActivity</string>
+    <string name= "google_place">AIzaSyD6J_j8P85TWFCQKV_jt2hVAcD_t_fryYs</string>
+</resources>

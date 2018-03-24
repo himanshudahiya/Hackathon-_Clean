@@ -18,14 +18,26 @@ import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.ui.PlacePicker;
 
-public class BottomSheet extends AppCompatActivity {
+public class BottomSheet extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private Button bottomSheetButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_temp);
 
+        bottomSheetButton =  findViewById(R.id.bottom_sheet_button);
+        int PLACE_PICKER_REQUEST = 1;
+        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+
+        try {
+            startActivityForResult(builder.build(this), PLACE_PICKER_REQUEST);
+        } catch (GooglePlayServicesRepairableException e) {
+            e.printStackTrace();
+        } catch (GooglePlayServicesNotAvailableException e) {
+            e.printStackTrace();
+        }
         bottomSheetButton = (Button) findViewById(R.id.bottom_sheet_button);
         bottomSheetButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,17 +101,13 @@ public class BottomSheet extends AppCompatActivity {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.cleaner) {
+            Intent i=new Intent(getApplicationContext(),Cleaner.class);
+            startActivity(i);
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.rater) {
+            Intent i=new Intent(getApplicationContext(),Cleaner.class);
+            startActivity(i);
 
         }
 

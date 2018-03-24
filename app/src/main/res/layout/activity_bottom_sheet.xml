@@ -5,7 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.himanshudahiya.hackathon_cleaniness.BottomSheet">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="24dp">
+
+            <Button
+                android:id="@+id/bottom_sheet_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bottom Sheet"
+                android:padding="16dp"
+                android:layout_margin="8dp"/>
+        </LinearLayout>
+    </ScrollView>
 
 
 </RelativeLayout>

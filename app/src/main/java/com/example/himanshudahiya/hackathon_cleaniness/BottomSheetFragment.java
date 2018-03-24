@@ -74,7 +74,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         ratingButton = contentView.findViewById(R.id.rate_button);
         ratingButton.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ClickableViewAccessibility")
-            public void onClick(View view){
+            public void onClick(View view) {
                 LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View popupView = inflater.inflate(R.layout.rating_popup, null);
 
@@ -98,13 +98,14 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                 final RatingBar areaRatingBar = popupView.findViewById(R.id.rate_area_bar);
                 areaRatingBar.setOnTouchListener(new View.OnTouchListener() {
                     double rating1 = 0;
+
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
                         if (event.getAction() == MotionEvent.ACTION_UP) {
                             float touchPositionX = event.getX();
                             float width = areaRatingBar.getWidth();
                             float starsf = (touchPositionX / width) * 5.0f;
-                            int stars = (int)starsf + 1;
+                            int stars = (int) starsf + 1;
                             areaRatingBar.setRating(stars);
                             rating1 = stars;
                             toSubmitRating = rating1;
@@ -124,34 +125,21 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                 // to get text written in review
                 EditText areaReviewText = popupView.findViewById(R.id.review_area_text);
                 Button submitButton = popupView.findViewById(R.id.submit_rating);
-                submitButton.setOnClickListener(new View.OnClickListener(){
-                    public void onClick(View view1){
+                submitButton.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View view1) {
                         // submit rating to server
                         System.out.println("rating = " + toSubmitRating);
                         popupWindow.dismiss();
                     }
                 });
                 Button cancelButton = popupView.findViewById(R.id.cancel_rating);
-                cancelButton.setOnClickListener(new View.OnClickListener(){
-                    public void onClick(View view1){
+                cancelButton.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View view1) {
                         popupWindow.dismiss();
                     }
                 });
             }
         });
-        mRecyclerView=contentView.findViewById(R.id.recycler);
-        arr=new ArrayList<String>();
-        for(int i=0;i<20;i++)
-            arr.add("hello world fsdkdksj d "+i);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ReviewAdapter adapter=new ReviewAdapter(getContext(),arr);
-        adapter.setOnItemClickListener(new ReviewAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view) {
-                ImageButton img=(ImageButton) view;
-                img.setImageResource(R.drawable.ic_action_name);
-            }});
-        mRecyclerView.setAdapter(adapter);
-
     }
+
 }

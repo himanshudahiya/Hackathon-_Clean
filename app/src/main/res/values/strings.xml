@@ -5,4 +5,10 @@
     <string name="title_activity_reset_password">ResetPasswordActivity</string>
     <string name="google_place">AIzaSyD6J_j8P85TWFCQKV_jt2hVAcD_t_fryYs</string>
     <string name="title_activity_location">Map</string>
+    <string name="title_activity_temp">TempActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

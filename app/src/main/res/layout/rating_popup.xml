@@ -8,6 +8,7 @@
 
     <TextView
         android:layout_width="wrap_content"
+        android:background="@drawable/textview"
         android:layout_height="wrap_content"
         android:text="Please rate this area on scale of 5."
         android:padding="10dp"
@@ -30,6 +31,9 @@
         android:id="@+id/review_area_text"
         />
     <Button
+        android:paddingTop="10dp"
+        style="@style/Butt_ons"
+        android:background="@drawable/roundbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/submit_rating"
@@ -37,6 +41,9 @@
         android:layout_below="@+id/review_area_text"
         android:layout_marginLeft="70dp"/>
     <Button
+        android:paddingTop="10dp"
+        style="@style/Butt_ons"
+        android:background="@drawable/roundbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/cancel_rating"

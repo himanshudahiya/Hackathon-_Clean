@@ -138,7 +138,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 } else {
                                     // store details
                                     String id = databaseLogin.push().getKey();
-                                    DetailsUser user = new DetailsUser(id,name_user,number,email,location) ;
+                                    boolean isCleaner = false ;
+                                    DetailsUser user = new DetailsUser(id,name_user,number,email,location,isCleaner) ;
                                     databaseLogin.child(id).setValue(user);
                                     // after email is sent just logout the user and finish this activity
                                     FirebaseAuth.getInstance().signOut();

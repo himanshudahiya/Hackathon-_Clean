@@ -7,13 +7,15 @@ public class DetailsUser {
     private int mobile ;
     private String email ;
     private String location ;
+    private boolean isCleaner ;
 
-    public DetailsUser(String id,String name, int mobile, String email, String location) {
+    public DetailsUser(String id,String name, int mobile, String email, String location, boolean Cleaner) {
         this.id = id ;
         this.name = name;
         this.mobile = mobile;
         this.email = email;
         this.location = location;
+        this.isCleaner = Cleaner ;
     }
 
     public String getName() {

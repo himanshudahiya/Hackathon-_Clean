@@ -106,7 +106,7 @@ public class BottomSheet extends AppCompatActivity implements NavigationView.OnN
             startActivity(i);
             // Handle the camera action
         } else if (id == R.id.rater) {
-            Intent i=new Intent(getApplicationContext(),Cleaner.class);
+            Intent i=new Intent(getApplicationContext(),MainActivity.class);
             startActivity(i);
 
         }

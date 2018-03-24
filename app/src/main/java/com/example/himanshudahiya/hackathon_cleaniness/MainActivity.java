@@ -24,13 +24,19 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
     double Lattitude = 12, Longitude = 12;
     PlaceAutocompleteFragment placeAutoComplete;
     Marker myMarker;
-
+    private DatabaseReference areadata ;
+    private DatabaseReference databaseLook ;
+    private DatabaseReference databaseLike ;
+    private DatabaseReference databaseNgo ;
+    private DatabaseReference databaseEvent ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +81,10 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-
+        areadata = FirebaseDatabase.getInstance().getReference("areas");
+        String id = areadata.push().getKey();
+        AreaModel area = new AreaModel(id,"76.53","30.97") ;
+        areadata.child(id).setValue(area);
         mapFragment.getMapAsync(this);
 
     }

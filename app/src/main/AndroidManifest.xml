@@ -18,15 +18,15 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".Cleaner"></activity>
+        <activity android:name=".BottomSheet">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Cleaner"></activity>
-        <activity android:name=".BottomSheet">
-
         </activity>
 
 
@@ -57,7 +57,9 @@
         <activity
             android:name=".LocationActivity"
             android:label="@string/title_activity_location"></activity>
-        <activity android:name=".ReviewsActivity"></activity>
+        <activity android:name=".ReviewsActivity">
+
+        </activity>
     </application>
 
 </manifest>

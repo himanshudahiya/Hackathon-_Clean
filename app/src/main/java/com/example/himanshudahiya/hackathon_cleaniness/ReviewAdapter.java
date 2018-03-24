@@ -20,20 +20,20 @@ import java.util.List;
 
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder> {
 
-    private List<String> mReview;
+    private List<Review> mReview;
     private Context mContext;
     private OnItemClickListener listener;
 
     // Define the listener interface
     public interface OnItemClickListener {
-        void onItemClick(View itemView);
+        void onItemClick(View itemView,boolean x);
     }
     // Define the method that allows the parent activity or fragment to define the listener
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
 
-    public ReviewAdapter(Context context, List<String> review){
+    public ReviewAdapter(Context context, List<Review> review){
         mContext=context;
         mReview=review;
     }
@@ -53,18 +53,20 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ReviewAdapter.ViewHolder viewHolder, int position) {
 
-        TextView mreview;
+        TextView mreview,numberoflikes;
         ImageButton img;
-        mreview=viewHolder.mReview;
+        mreview=viewHolder.mreview;
+        numberoflikes=viewHolder.numberoflikes;
         img=viewHolder.img;
-        mreview.setText(mReview.get(position));
+        mreview.setText(mReview.get(position).Review);
+        numberoflikes.setText(" "+mReview.get(position).get_no_of_likes());
         // Set item views based on your views and data model
 
          }
 
     @Override
     public int getItemCount() {
-        return 20;
+        return 6;
     }
 
     // Provide a direct reference to each of the views within a data item
@@ -72,7 +74,8 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
 public class ViewHolder extends RecyclerView.ViewHolder {
     // Your holder should contain a member variable
     // for any view that will be set as you render a row
-    TextView mReview;
+    TextView mreview;
+    TextView numberoflikes;
     ImageButton img;
     // We also create a constructor that accepts the entire item row
     // and does the view lookups to find each subview
@@ -80,7 +83,8 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         // Stores the itemView in a public final member variable that can be used
         // to access the context from any ViewHolder instance.
         super(itemView);
-        mReview=itemView.findViewById(R.id.text_recycler);
+        mreview=itemView.findViewById(R.id.text_recycler);
+        numberoflikes=itemView.findViewById(R.id.no_of_likes);
         img=itemView.findViewById(R.id.like_button);
         img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +94,10 @@ public class ViewHolder extends RecyclerView.ViewHolder {
                     int position = getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
                         img.setMaxHeight(img.getHeight());
-                        listener.onItemClick(img);
+                        Review review=mReview.get(position);
+                        review.liked=!review.liked;
+                        listener.onItemClick(img,review.liked);
+                        numberoflikes.setText(" "+mReview.get(position).get_no_of_likes());
 
                     }
                 }

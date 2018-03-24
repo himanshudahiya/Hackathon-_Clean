@@ -39,26 +39,13 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     private RecyclerView mRecyclerView;
     private HorizontalBarChart barChart;
     private Button ratingButton;
-    private ArrayList<String> arr;
+    private ArrayList<Review> arr;
     private double toSubmitRating = 0;
 
     @Override
     public void setupDialog(final Dialog dialog, int style) {
         super.setupDialog(dialog, style);
         View contentView = View.inflate(getContext(), R.layout.bottom_sheet_fragment, null);
-        mRecyclerView=contentView.findViewById(R.id.recycler);
-        arr=new ArrayList<String>();
-        for(int i=0;i<20;i++)
-            arr.add("hello world fsdkdksj d "+i);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ReviewAdapter adapter=new ReviewAdapter(getContext(),arr);
-        adapter.setOnItemClickListener(new ReviewAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view) {
-                ImageButton img=(ImageButton) view;
-                img.setImageResource(R.drawable.ic_action_name);
-        }});
-        mRecyclerView.setAdapter(adapter);
 
         mRatingBarValue = (RatingBar) contentView.findViewById(R.id.area_rating);
         final double rating = 2.5;
@@ -152,7 +139,6 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                 });
             }
         });
-
 
     }
 }
